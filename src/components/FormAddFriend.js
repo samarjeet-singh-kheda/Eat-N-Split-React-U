@@ -11,7 +11,7 @@ export default function FormAddFriend({ onAddFriend }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState(`https://i.pravatar.cc/48`);
 
-  function handleClick(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (!name || !image) return;
@@ -37,7 +37,7 @@ export default function FormAddFriend({ onAddFriend }) {
   }
 
   return (
-    <form className="form-add-friend">
+    <form className="form-add-friend" onSubmit={handleSubmit}>
       <label>👫 Friend Name</label>
       <input
         type="text"
@@ -52,7 +52,7 @@ export default function FormAddFriend({ onAddFriend }) {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <Button onClick={handleClick}>Add</Button>
+      <Button>Add</Button>
     </form>
   );
 }
